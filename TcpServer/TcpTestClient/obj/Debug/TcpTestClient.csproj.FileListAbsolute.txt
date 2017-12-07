@@ -1,0 +1,13 @@
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\bin\Debug\TcpTestClient.exe.config
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\bin\Debug\TcpTestClient.exe
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\bin\Debug\TcpTestClient.pdb
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.csprojResolveAssemblyReference.cache
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\MainWindow.baml
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\MainWindow.g.cs
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\App.g.cs
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient_MarkupCompile.cache
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.g.resources
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.Properties.Resources.resources
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.csproj.GenerateResource.Cache
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.exe
+D:\GitHub\ISS-Project\TcpServer\TcpTestClient\obj\Debug\TcpTestClient.pdb
