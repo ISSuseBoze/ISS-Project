@@ -1,0 +1,15 @@
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\bin\Debug\SimulationMonitor.exe.config
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\bin\Debug\SimulationMonitor.exe
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\bin\Debug\SimulationMonitor.pdb
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.csprojResolveAssemblyReference.cache
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\MainWindow.g.cs
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\App.g.cs
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor_MarkupCompile.cache
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor_MarkupCompile.lref
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\MainWindow.baml
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.g.resources
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.Properties.Resources.resources
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.csproj.GenerateResource.Cache
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.csproj.CoreCompileInputs.cache
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.exe
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.pdb

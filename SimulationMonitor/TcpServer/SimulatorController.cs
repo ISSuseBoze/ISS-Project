@@ -39,6 +39,25 @@ namespace TcpServer
 
         }
 
+        public void startServer(string hostIP, int port)
+        {
+            //set server
+            server = new Server(hostIP, port);
+            //set server events
+            server.OnServerStarted += Server_OnServerStarted;
+            server.OnServerStopped += Server_OnServerStopped;
+            server.OnListeningForClient += Server_OnListeningForSimulator;
+            server.OnClientAccepted += Server_OnSimulatorAccepted;
+            server.OnDataReceived += Server_OnDataReceived;
+        }
+
+        public void stopServer()
+        {
+            this.send_HALT();
+            server.closeConnection();
+            server.Dispose();
+        }
+
         //should only receive END_TASK<space><CSV>
         private void Server_OnDataReceived(object sender, ServerEventArgs e)
         {
@@ -117,6 +136,8 @@ namespace TcpServer
         {
             if(server != null)
             {
+                this.send_HALT();
+                server.closeConnection();
                 server.Dispose();
             }
         }

@@ -31,14 +31,25 @@ namespace SimulationMonitor
 
             //set server
             server = new Server(hostIP, port);
+
             //set server events
             server.OnServerStarted += Server_OnServerStarted;
             server.OnServerStopped += Server_OnServerStopped;
             server.OnListeningForClient += Server_OnListeningForSimulator;
             server.OnClientAccepted += Server_OnSimulatorAccepted;
             server.OnDataReceived += Server_OnDataReceived;
+            
 
 
+
+        }
+
+        public void initiateServer()
+        {
+            if(server != null)
+            {
+                server.startServer();
+            }
         }
 
         //should only receive END_TASK<space><CSV>
@@ -117,10 +128,13 @@ namespace SimulationMonitor
             return messages.Dequeue();
         }
 
+        //also closes server
         public void Dispose()
         {
-            if(server != null)
+            messages = null;
+            if (server != null)
             {
+                this.send_HALT();
                 server.Dispose();
             }
         }
