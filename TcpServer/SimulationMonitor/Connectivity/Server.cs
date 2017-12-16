@@ -1,13 +1,14 @@
-﻿using System;
+﻿using SimulationMonitor.CustomEventArgs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using TcpServer.CustomEventArgs;
 
-namespace TcpServer
+
+namespace SimulationMonitor.Connectivity
 {
 
     public delegate void ServerEventDelegate(object sender, ServerEventArgs e);

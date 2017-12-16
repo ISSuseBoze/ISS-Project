@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TcpServer
+namespace TcpServer.CustomEventArgs
 {
-   
-    public class ServerEventArgs: EventArgs
+    public class SimulatorEventArgs: EventArgs
     {
         public string Message { get; set; }
 
-        public ServerEventArgs(string message)
+        public SimulatorEventArgs(string message)
         {
             Message = message;
         }
