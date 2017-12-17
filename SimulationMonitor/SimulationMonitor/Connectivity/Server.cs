@@ -86,7 +86,7 @@ namespace SimulationMonitor.Connectivity
                 receivedText.Add(NewTextData);
                 
 
-                OnDataReceived.Invoke(this, new ServerEventArgs("Received: " + NewTextData.ToString()));
+                OnDataReceived.Invoke(this, new ServerEventArgs(NewTextData.ToString()));
 
             }
         }
@@ -94,12 +94,26 @@ namespace SimulationMonitor.Connectivity
         public void sendToClient(string message)
         {
             Byte[] bytes = System.Text.Encoding.UTF8.GetBytes(message);
-            client.Client.Send(bytes);
+            try
+            {
+                if (client != null)
+                {
+                    client.Client.Send(bytes);
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+
+            
         }
 
         public void closeConnection()
         {
-            client.Close();
+            if (client != null)
+                client.Close();
+
             server.Stop();
            
             OnServerStopped.Invoke(this, new ServerEventArgs("Server stopped."));

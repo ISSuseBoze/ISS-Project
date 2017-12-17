@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
+using System.Windows.Threading;
 
 namespace SimulationMonitor
 {
@@ -17,6 +18,7 @@ namespace SimulationMonitor
         //public List<string> messages;
         public Queue<string> messages;
 
+
         //delegate and events that are passed on
         public delegate void ServerEventDelegate(object sender, SimulatorEventArgs e);
         public event ServerEventDelegate OnDataReceived;
@@ -27,6 +29,7 @@ namespace SimulationMonitor
 
         public SimulatorController(string hostIP, int port)
         {
+            
             messages = new Queue<string>();
 
             //set server
@@ -49,6 +52,7 @@ namespace SimulationMonitor
             if(server != null)
             {
                 server.startServer();
+                //await server.acceptClient();
             }
         }
 
@@ -62,11 +66,20 @@ namespace SimulationMonitor
                 if (message.Split(' ')[0] == "END_TASK")
                 {
                     //all is OK; get the data; place it as most recent
+
+
                     messages.Enqueue(message.Split(' ')[1]);
-                    
+
+
 
                     //in the end notify anybody who might be above
-                    OnDataReceived.Invoke(this, new SimulatorEventArgs(message));
+                    //black bloody magic that's what this is
+                    Application.Current.Dispatcher.BeginInvoke(
+                             DispatcherPriority.Background,
+                                new Action(() => OnDataReceived.Invoke(this, new SimulatorEventArgs("New message enqueued."))));
+                    
+
+                    
                 }
                 else
                 {
@@ -102,6 +115,9 @@ namespace SimulationMonitor
         private void Server_OnServerStarted(object sender, ServerEventArgs e)
         {
             OnServerStarted.Invoke(this, new SimulatorEventArgs(e.Message));
+            server.acceptClient().ContinueWith(x => {
+                server.receiveSessionData();
+            });
         }
 
         //send START message to simulator

@@ -13,3 +13,5 @@ G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\Simula
 G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.csproj.CoreCompileInputs.cache
 G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.exe
 G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\obj\Debug\SimulationMonitor.pdb
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\bin\Debug\Newtonsoft.Json.dll
+G:\Juraj\GitHub\ISS-Project\SimulationMonitor\SimulationMonitor\bin\Debug\Newtonsoft.Json.xml
