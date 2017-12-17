@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimulationMonitor"
         mc:Ignorable="d"
-        Title="Simulation Monitor" Height="500" Width="800" MinWidth="800" MinHeight="500"
+        Title="Simulation Monitor" Height="500" Width="1000" MinWidth="800" MinHeight="500"
 		DataContext="{Binding RelativeSource={RelativeSource Self}}">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="1.2*"/>
-			<RowDefinition Height="20*"/>
-			<RowDefinition Height="2*"/>
+			<RowDefinition Height="1.5*"/>
+			<RowDefinition Height="1.5*"/>
+			<RowDefinition Height="22*"/>
+			<RowDefinition Height="2.5*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="1*"/>
 			<ColumnDefinition Width="1*"/>
 			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
-		<ListView x:Name="lst_tasks" Grid.Row="1" SelectionChanged="lst_tasks_SelectionChanged" ItemsSource="{Binding SimulationTasks}">
+		<ListView x:Name="lst_tasks" Grid.Row="2" SelectionChanged="lst_tasks_SelectionChanged" ItemsSource="{Binding SimulationTasks}">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<WrapPanel>
@@ -27,21 +29,40 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
-		<Separator Grid.Row="1" Grid.Column="1" Margin="0" IsEnabled="True"  Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" HorizontalAlignment="Left"/>
-		<Separator Grid.Row="1" Grid.Column="2" Margin="0" IsEnabled="True"  Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" HorizontalAlignment="Left"/>
-		<Button x:Name="btn_sendTask" Content="Send Task" HorizontalAlignment="Left" Margin="10,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_sendTask_Click"/>
-		<TextBlock x:Name="txb_selectedTaskDetails" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Grid.Row="1" IsEnabled="False" Background="#FFD6F6FF"/>
-		<TextBlock x:Name="txb_receivedData" Grid.Column="2" Margin="5,0,0,0" TextWrapping="Wrap" Text="" Grid.RowSpan="1" Grid.Row="1" IsEnabled="False" ScrollViewer.CanContentScroll="True" Background="#FFFFFCBD"/>
-		<Menu Margin="0" Grid.ColumnSpan="3">
+		<Separator Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="0" IsEnabled="True"  Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" HorizontalAlignment="Left"/>
+		<Separator Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Margin="0" IsEnabled="True"  Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" HorizontalAlignment="Left"/>
+		<Separator Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Margin="0" IsEnabled="True"  Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" HorizontalAlignment="Left"/>
+		<Button x:Name="btn_sendTask" Content="Send Task" HorizontalAlignment="Left" Margin="10,11,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_sendTask_Click"/>
+		<ScrollViewer Grid.Row="2" Grid.Column="1">
+			<TextBlock x:Name="txb_selectedTaskDetails" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Grid.Row="1" IsEnabled="False" Background="#FFD6F6FF"/>
+		</ScrollViewer>
+		<ScrollViewer Grid.Row="2" Grid.Column="2">
+			<TextBlock x:Name="txb_receivedData" Grid.Column="2" Margin="5,0,0,0" TextWrapping="Wrap" Text="" Grid.RowSpan="1" Grid.Row="1" IsEnabled="False" ScrollViewer.CanContentScroll="True" Background="#FFFFFCBD" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+		</ScrollViewer>
+		<Menu Margin="0" Grid.ColumnSpan="4">
 			<MenuItem Header="_File">
 				<MenuItem x:Name="mi_openSimConfig" Header="_Open Simulation Configuration" Click="mi_openSimConfig_Click"/>
 				<MenuItem x:Name="mi_saveSimResults" Header="_Save Simulation Results" Click="mi_saveSimResults_Click"/>
 				<MenuItem x:Name="mi_quit" Header="_Quit" Click="mi_quit_Click"/>
 			</MenuItem>
 		</Menu>
-		<Button x:Name="btn_startStopServer" Content="Start Server" Grid.Column="1" HorizontalAlignment="Left" Margin="27,11,0,0" Grid.Row="2" VerticalAlignment="Top" Click="btn_startStopServer_Click"/>
-		<Button x:Name="btn_sendStart" Content="Send START" HorizontalAlignment="Left" Margin="90,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="btn_sendStart_Click" IsEnabled="False"/>
-		<Button x:Name="btn_sendHalt" Grid.ColumnSpan="2" Content="Send HALT" HorizontalAlignment="Left" Margin="170,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="btn_sendHalt_Click" IsEnabled="False"/>
+		<Button x:Name="btn_startStopServer" Content="Start Server" Grid.Column="2" HorizontalAlignment="Left" Margin="29,11,0,0" Grid.Row="3" VerticalAlignment="Top" Click="btn_startStopServer_Click"/>
+		<Button x:Name="btn_sendStart" Content="Send START" HorizontalAlignment="Left" Margin="90,11,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="btn_sendStart_Click" IsEnabled="False"/>
+		<Button x:Name="btn_sendHalt" Content="Send HALT" HorizontalAlignment="Left" Margin="170,11,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="btn_sendHalt_Click" IsEnabled="False"/>
+		<Button x:Name="btn_clearTaskResults" Content="Clear task results" Grid.Column="3" HorizontalAlignment="Left" Margin="30,11,0,0" Grid.Row="3" VerticalAlignment="Top" Click="btn_clearTaskResults_Click"/>
+		<ListView x:Name="lst_taskResults" Grid.Column="3" Margin="0" Grid.Row="2">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<WrapPanel>
+						<TextBlock Text="{Binding ShortDescription}" />
+					</WrapPanel>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+		<Label Content="Loaded tasks:" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label Content="Selected task JSON:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1"/>
+		<Label Content="Server messages:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="2"/>
+		<Label Content="Current task results:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="3"/>
 
 	</Grid>
 </Window>

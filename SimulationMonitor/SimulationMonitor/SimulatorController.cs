@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -67,8 +68,8 @@ namespace SimulationMonitor
                 {
                     //all is OK; get the data; place it as most recent
 
-
-                    messages.Enqueue(message.Split(' ')[1]);
+                    
+                    messages.Enqueue(message.Split(new char[] { ' ' }, 2)[1]);
 
 
 

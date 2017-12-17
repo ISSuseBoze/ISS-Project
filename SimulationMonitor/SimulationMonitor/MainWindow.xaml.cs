@@ -35,9 +35,14 @@ namespace SimulationMonitor
 
         public OpenFileDialog ofd_openConfigJSON;
 
+        public System.Windows.Forms.FolderBrowserDialog sfd_saveResultsToDir;
+
+        public ObservableCollection<TaskResult> TaskResults { get; set; }
+
         public MainWindow()
         {
             SimulationTasks = new ObservableCollection<SimulationTask>();
+            TaskResults = new ObservableCollection<TaskResult>();
 
             InitializeComponent();
         }
@@ -64,7 +69,22 @@ namespace SimulationMonitor
 
         private void mi_saveSimResults_Click(object sender, RoutedEventArgs e)
         {
+            string dirPath = "";
+            sfd_saveResultsToDir = new System.Windows.Forms.FolderBrowserDialog();
+            if(sfd_saveResultsToDir.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dirPath = sfd_saveResultsToDir.SelectedPath;
+                string fileName = "";
+                int count = 0;
+                foreach(TaskResult taskResult in TaskResults)
+                {
+                    fileName = "Task_Result_" + (++count).ToString() + "_" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm") + ".xlsx";
+                    ExcelWriter writer = new ExcelWriter(dirPath + "\\" + fileName);
+                    writer.writeTaskResults(taskResult);
+                }
 
+                MessageBox.Show("Files successfully saved.", "Files saved", MessageBoxButton.OK);
+            }
         }
 
         private void mi_quit_Click(object sender, RoutedEventArgs e)
@@ -109,7 +129,12 @@ namespace SimulationMonitor
 
         private void SimulatorController_OnDataReceived(object sender, SimulatorEventArgs e)
         {
-            txb_receivedData.Text += simulatorController.getMessage() + "\n";
+            string newMessage = simulatorController.getMessage();
+            txb_receivedData.Text +=  newMessage + "\n";
+
+            TaskResults.Add(new TaskResult(newMessage));
+
+            lst_taskResults.ItemsSource = TaskResults;
         }
 
         private void SimulatorController_OnSimulatorAccepted(object sender, SimulatorEventArgs e)
@@ -164,6 +189,13 @@ namespace SimulationMonitor
             btn_sendTask.IsEnabled = false;
             btn_sendStart.IsEnabled = false;
             btn_sendHalt.IsEnabled = false;
+        }
+
+        private void btn_clearTaskResults_Click(object sender, RoutedEventArgs e)
+        {
+            TaskResults.Clear();
+
+            lst_taskResults.ItemsSource = TaskResults;
         }
     }
 }
