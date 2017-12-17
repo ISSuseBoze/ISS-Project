@@ -33,7 +33,7 @@ namespace SimulationMonitor.FileControl
             int taskNum = 1;
             foreach(object task in d["tasks"])
             {
-                tasks.Add(new SimulationTask(taskNum, JsonConvert.SerializeObject(task, Formatting.Indented)));
+                tasks.Add(new SimulationTask(taskNum, JsonConvert.SerializeObject(task, Formatting.None)));
                 taskNum++;
             }
 

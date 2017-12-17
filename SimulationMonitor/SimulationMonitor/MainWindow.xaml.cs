@@ -138,7 +138,7 @@ namespace SimulationMonitor
         {
             if(lst_tasks.SelectedItem != null)
             {
-                txb_selectedTaskDetails.Text = ((SimulationTask)lst_tasks.SelectedItem).TaskJSON;
+                txb_selectedTaskDetails.Text = ((SimulationTask)lst_tasks.SelectedItem).TaskJSONBeautified;
             }
         }
 

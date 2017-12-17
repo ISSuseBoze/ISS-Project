@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,13 @@ namespace SimulationMonitor.Model
 
             }
         }
-
+        public string TaskJSONBeautified
+        {
+            get
+            {
+                return JValue.Parse(TaskJSON).ToString(Formatting.Indented);
+            }
+        }
         public SimulationTask(int taskNumber, string taskJSON)
         {
             this.TaskNumber = taskNumber;
