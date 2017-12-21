@@ -43,17 +43,21 @@ public class NoseScript : MonoBehaviour {
 	void Update () {
 
         moveByKeyPress();
-
-        rb.position = new Vector3(
-        Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-        0.0f,
-        Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax));
-
-
+        setToBounds();
 
     }
 
+    //limit nose movement so it can't leave the camera scene
+    private void setToBounds()
+    {
+        rb.position = new Vector3(
+                            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+                            0.0f,
+                            Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax));
+    }
 
+
+    //check if the nose should be moved on a pressed key
     private void moveByKeyPress()
     {
         if (Input.GetKey(transLeft))

@@ -7,10 +7,13 @@ public class BearingTargetScript : MonoBehaviour {
 
     private Rigidbody rb;
     private MeshCollider mc;
+    private bool noseMovementStarted;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         mc = GetComponent<MeshCollider>();
+        noseMovementStarted = false;
 	}
 	
 	// Update is called once per frame
@@ -22,10 +25,21 @@ public class BearingTargetScript : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         //i don't know how; i don't want to know how; i don't care; it just bloody works!
-        if(mc.bounds.Contains(other.bounds.min) && mc.bounds.Contains(other.bounds.max) && other.gameObject.name == "Nose")
+        if(noseMovementStarted && mc.bounds.Contains(other.bounds.min) && mc.bounds.Contains(other.bounds.max) && other.gameObject.name == "Nose")
         {
-            print("point is inside collider");
+            print("Nose is IN");
         }
             
+    }
+
+    //when the nose first leaves the bearing due to a random force
+    private void OnTriggerExit(Collider other)
+    {
+        if (!(noseMovementStarted && mc.bounds.Contains(other.bounds.min) && mc.bounds.Contains(other.bounds.max)) && other.gameObject.name == "Nose")
+        {
+            print("Nose just left");
+            noseMovementStarted = true;
+
+        }
     }
 }
