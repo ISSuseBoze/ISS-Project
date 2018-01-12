@@ -43,3 +43,11 @@ D:\GitHub\ISS-Project\TcpServer\TcpServer\obj\Debug\MainWindow.baml
 D:\GitHub\ISS-Project\TcpServer\TcpServer\obj\Debug\TcpServer.g.resources
 D:\GitHub\ISS-Project\TcpServer\TcpServer\obj\Debug\TcpServer.Properties.Resources.resources
 D:\GitHub\ISS-Project\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.GenerateResource.Cache
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\bin\Debug\TcpServer.exe.config
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\TcpServer.exe
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\TcpServer.pdb
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\TcpServer.csprojResolveAssemblyReference.cache
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\MainWindow.g.cs
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\App.g.cs
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\TcpServer_MarkupCompile.cache
+D:\projekti\ISS\ISS-Project\SimulationMonitor\TcpServer\obj\Debug\TcpServer_MarkupCompile.lref

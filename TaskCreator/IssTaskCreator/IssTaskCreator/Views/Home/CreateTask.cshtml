@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "CreateTask";
+}
+
+<h2>CreateTask</h2>
+
+
+<form class="form-horizontal" method="post" action="/Home/CreateTaskPost">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Task Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Task Name" name="taskName" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Stressor occurrence (%)</label>
+        <div class="col-sm-10">
+            <input type="number" min="0" max="100" step="1" class="form-control" placeholder="Stressor occurrence" value="0" name="stressorOccurrence">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Transformations:</label>
+        @for (var i = 0; i < 6; i++)
+        {
+            <div class="row form-inline">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 col-sm-3">
+                    <div class="input-group-addon">Occurence Time (s)</div>
+                    <input type="number" class="form-control" min="0" max="5" step="0.1" name="OT_@i">
+                </div>
+
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 col-sm-3">
+                    <div class="input-group-addon">Rotation factor</div>
+                    <input type="number" step="1" class="form-control" name="RF_@i">
+                </div>
+
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 col-sm-2">
+                    <div class="input-group-addon">x</div>
+                    <input type="number" step="0.1" class="form-control" name="X_@i">
+                </div>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 col-sm-2">
+                    <div class="input-group-addon">y</div>
+                    <input type="number" step="0.1" class="form-control" name="Y_@i">
+                </div>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 col-sm-2">
+                    <div class="input-group-addon">z</div>
+                    <input type="number" step="0.1" class="form-control" name="Z_@i">
+                </div>
+
+            </div>
+            <br />
+        }
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
