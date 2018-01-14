@@ -25,20 +25,21 @@ namespace IssTaskCreator.Repository
 
                 var repoJson = File.ReadAllText(fileName);
 
-                List<TaskModel> repo;
+                ListContainter container = new ListContainter();
 
                 if (string.IsNullOrWhiteSpace(repoJson))
                 {
-                    repo = new List<TaskModel>();
-                    repo.Add(task);
+                    container.tasks = new List<TaskModel>();
+                    container.tasks.Add(task);
                 }
                 else
                 {
-                    repo = JsonConvert.DeserializeObject<List<TaskModel>>(repoJson);
-                    repo.Add(task);
+                    container = JsonConvert.DeserializeObject<ListContainter>(repoJson);
+                    container.tasks.Add(task);
+
                 }
 
-                File.WriteAllText(fileName, JsonConvert.SerializeObject(repo, Formatting.Indented));
+                File.WriteAllText(fileName, JsonConvert.SerializeObject(container, Formatting.Indented));
             }
             catch (Exception ex)
             {
@@ -48,5 +49,10 @@ namespace IssTaskCreator.Repository
             return true;
 
         }
+    }
+
+    class ListContainter
+    {
+        public List<TaskModel> tasks { get; set; }
     }
 }
