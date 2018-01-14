@@ -12,7 +12,8 @@ public class Boundary
 
 }
 
-public class NoseScript : MonoBehaviour {
+public class NoseScript : MonoBehaviour
+{
 
 
     public KeyCode transLeft = KeyCode.A;
@@ -22,15 +23,16 @@ public class NoseScript : MonoBehaviour {
     public KeyCode rotLeft = KeyCode.Q;
     public KeyCode rotRight = KeyCode.E;
 
-    public float transForce = 10;
-    public float rotForce = 5;
+    public float transForce = 5;
+    public float rotForce = 3;
 
     private Rigidbody rb;
 
     public Boundary boundary;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         rb = this.GetComponent<Rigidbody>();
 
         boundary.xMax = 9.5f;
@@ -38,9 +40,10 @@ public class NoseScript : MonoBehaviour {
         boundary.zMax = 10.0f;
         boundary.zMin = -10.0f;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         moveByKeyPress();
         setToBounds();
@@ -60,34 +63,38 @@ public class NoseScript : MonoBehaviour {
     //check if the nose should be moved on a pressed key
     private void moveByKeyPress()
     {
+        if (Input.anyKeyDown)
+        {
+            SimulationLog.LogKey(Time.time);
+        }
         if (Input.GetKey(transLeft))
         {
-            rb.velocity = new Vector3(0, 0, transForce);
+            rb.velocity += new Vector3(0, 0, transForce);
         }
 
         if (Input.GetKey(transRight))
         {
-            rb.velocity = new Vector3(0, 0, -transForce);
+            rb.velocity += new Vector3(0, 0, -transForce);
         }
 
         if (Input.GetKey(transUp))
         {
-            rb.velocity = new Vector3(transForce, 0, 0);
+            rb.velocity += new Vector3(transForce, 0, 0);
         }
 
         if (Input.GetKey(transDown))
         {
-            rb.velocity = new Vector3(-transForce, 0, 0);
+            rb.velocity += new Vector3(-transForce, 0, 0);
         }
 
         if (Input.GetKey(rotLeft))
         {
-            rb.angularVelocity = new Vector3(0, -rotForce, 0);
+            rb.angularVelocity += new Vector3(0, -rotForce, 0);
         }
 
         if (Input.GetKey(rotRight))
         {
-            rb.angularVelocity = new Vector3(0, rotForce, 0);
+            rb.angularVelocity += new Vector3(0, rotForce, 0);
         }
     }
 }

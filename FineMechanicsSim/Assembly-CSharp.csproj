@@ -51,8 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Communication\TCPConnection.cs" />
+     <Compile Include="Assets\LogicalModels\SimulationLog.cs" />
+     <Compile Include="Assets\LogicalModels\TaskModel.cs" />
+     <Compile Include="Assets\LogicalModels\Transformation.cs" />
+     <Compile Include="Assets\Scripts\BearingTargetScript.cs" />
      <Compile Include="Assets\Scripts\NoseScript.cs" />
+     <Compile Include="Assets\Scripts\NoseTaskScript.cs" />
      <Compile Include="Assets\Scripts\SceneScript.cs" />
+     <Compile Include="Assets\Scripts\SimulationManager.cs" />
+     <Compile Include="Assets\Scripts\SocketScript.cs" />
+     <Compile Include="Assets\Scripts\StressorManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

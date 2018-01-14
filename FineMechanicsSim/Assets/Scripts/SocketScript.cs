@@ -13,6 +13,7 @@ public class SocketScript : MonoBehaviour
     private TCPConnection myTCP;
     private string serverMsg;
     public string msgToServer;
+    public SimulationManager simulationManager;
 
 
 
@@ -69,11 +70,12 @@ public class SocketScript : MonoBehaviour
     void SocketResponse()
     {
         string serverSays = myTCP.readSocket();
-        
+
         if (serverSays != "")
         {
 
             print("[SERVER]" + serverSays);
+            simulationManager.GetMessage(serverSays);
 
         }
     }
