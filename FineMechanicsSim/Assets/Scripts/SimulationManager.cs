@@ -52,6 +52,7 @@ public class SimulationManager : MonoBehaviour
             noseTaskscript.stopTask();
             stressorManager.StopStressors();
             gameState = GameState.Stopepd;
+            EndSimulation();
         }
 
     }

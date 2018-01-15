@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SimulationLog
 {
-    public static int kvant = 2;
+    public static int kvant = 1;
     private static float startTime;
     private static List<float> keyLog;
     private static List<float> stressorLog;

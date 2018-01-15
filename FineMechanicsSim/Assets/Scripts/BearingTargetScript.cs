@@ -30,8 +30,15 @@ public class BearingTargetScript : MonoBehaviour
         //i don't know how; i don't want to know how; i don't care; it just bloody works!
         if (noseMovementStarted && mc.bounds.Contains(other.bounds.min) && mc.bounds.Contains(other.bounds.max) && other.gameObject.name == "Nose")
         {
-            print("Nose is IN");
-            simulationManager.EndSimulation();
+            var noseVelocity = other.gameObject.GetComponent<Rigidbody>().velocity;
+            var noseRotation = other.gameObject.GetComponent<Rigidbody>().angularVelocity;
+            if (noseVelocity.x < 0.1 && noseVelocity.y < 0.1 && noseVelocity.z < 0.1 && noseRotation.y < 0.1 &&
+                noseVelocity.x > -0.1 && noseVelocity.y > -0.1 && noseVelocity.z > -0.1 && noseRotation.y > -0.1)
+            {
+                print("Nose is IN");
+                simulationManager.EndSimulation();
+            }
+
 
         }
 
